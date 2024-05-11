@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="A new design system for developing with less effort.">
+    <meta name="author" content="BootstrapBay">
+
+    <link href="{% static 'img/videoconference.png' %}" rel="icon" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lazy.css' %}">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  </head>
+  <body class="index">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="./"><img src="{% static 'img\videoconference.png' %}" alt="Example Navbar 1" class="mr-2" height="30"> Let's Meet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-7" aria-controls="navbarNavDropdown-7"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="btn btn-outline-light" href="index">
+                Log Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="page-hero bg-primary text-white" id="banner">
+		<div class="bubbles d-none d-md-block">
+<!-- 				bubbles -->
+      <div class="bubble bubble-1 rotate-bubble bg-warning"></div>
+      <div class="bubble bubble-2 bubble-bottom-right bg-danger rotate-bubble"></div>
+      <div class="bubble bubble-3 bubble-top-right bg-warning rotate-bubble"></div>
+      <div class="bubble bubble-4 bubble-top-left bg-info rotate-bubble"></div>
+      <div class="bubble bubble-5 bg-info rotate-bubble"></div>
+      <div class="bubble bubble-6 bubble-bottom-right bg-danger rotate-bubble"></div>
+      <div class="bubble bubble-7 bubble-top-right bg-success rotate-bubble"></div>
+      <div class="bubble bubble-8 bubble-top-left bg-success rotate-bubble"></div>
+      <div class="bubble bubble-9 bg-warning rotate-bubble"></div>
+      <div class="bubble bubble-10 bg-danger rotate-bubble"></div>
+      <div class="bubble bubble-11 bubble-bottom-right bg-info rotate-bubble"></div>
+      <div class="bubble bubble-12 bubble-top-right bg-success rotate-bubble"></div>
+      <div class="bubble bubble-13 bubble-top-left bg-success rotate-bubble"></div>
+<!--         circles -->
+      <div class="circle circle-1 bg-light rotate-circle"></div>
+      <div class="circle circle-2 bg-success rotate-circle"></div>
+      <div class="circle circle-3 bg-danger rotate-circle"></div>
+      <div class="circle circle-4 bg-info rotate-circle"></div>
+      <div class="circle circle-5 bg-success rotate-circle"></div>
+      <div class="circle circle-6 bg-info rotate-circle"></div>
+      <div class="circle circle-7 bg-warning rotate-circle"></div>
+      <div class="circle circle-8 bg-white rotate-circle"></div>
+      <div class="circle circle-9 bg-warning rotate-circle"></div>
+      <div class="circle circle-10 bg-danger rotate-circle"></div>
+		</div>
+  	<div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8  offset-lg-2 text-center">
+	          <div class="title">
+              {% csrf_token %} 
+	            <h4 class="display-2 text-white">Welcome,{{ user.username }}</h4>
+	            <h4 class="text-white">Empower Your Connections: Where Ideas Meet Innovation.</h4>
+	          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+<div class="intro bg-light">
+  <div class="container">
+    <div class="section desc">
+	    <div class="row">
+		    <div class="col-12 col-md-8 offset-md-2">
+							<p class="lead"><b>Let's Meet</b> Your Conference, Your Experience: Let's Meet, where registration isn't just a formality but a commitment to unlocking a world of insights. Reserve your spot and join the conversation.</p>
+		    </div>
+	    </div>
+    </div>
+  <style>
+  /* CSS for Hover Effect */
+.img-hover:hover {
+    transform: scale(1.1); /* Increase the size on hover */
+    transition: transform 0.3s ease; /* Add a smooth transition */
+}
+.image-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .image-caption {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+
+    .event-animation {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .event-animation:hover {
+        transform: scale(1.05); /* Increase the size on hover */
+    }
+
+  </style>
+  
+  </head>
+<!-- Containers for Event Introduction -->
+<div class="intro bg-light">
+    <div class="container">
+        <div class="section desc">
+          {% for event in events %}
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="event-container event-animation">
+                        <h2>{{ event.name }}</h2>
+                        <p>{{ event.description }}</p>
+
+                        <div class="registration-button">
+                            <a class="btn btn-primary" href="homenxt">Register</a>
+                        </div> 
+                    </div>
+                </div>
+          {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+   
+
+    
+<footer class="footer-1 bg-light text-dark">
+  <div class="container">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    </div>
+    <div class="social mt-4 mt-md-0">
+      <a class="twitter btn btn-outline-primary btn-icon" href="#" target="_blank">
+        <i class="fab fa-twitter"></i>
+        <span class="sr-only">View our Twitter Profile</span>
+      </a>
+      <a class="facebook btn btn-outline-primary btn-icon" href="#" target="_blank">
+        <i class="fab fa-facebook"></i>
+        <span class="sr-only">View our Facebook Profile
+          <span>
+      </a>
+      <a class="github btn btn-outline-primary btn-icon" href="#" target="_blank">
+        <i class="fab fa-github"></i>
+        <span class="sr-only">View our GitHub Profile</span>
+      </a>
+    </div>
+  </div>
+  <div class="copyright text-center">
+    <hr />
+    <p class="small">&copy; 2023, made with <span class="text-danger"><i class="fas fa-heart"></i></span> by Kishor</p>
+  </div>
+  </div>
+  </footer>
+  
+  
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+      <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+      <script src="{% static 'vendor/nouislider/js/nouislider.min.js' %}"></script>
+      <script src="{% static 'js/lazy.js' %}"></script>
+    </body>
+  </html>
